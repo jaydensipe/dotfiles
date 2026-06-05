@@ -1,16 +1,21 @@
 { pkgs, ...}:
 
 {
-	services.xserver.enable = true;
-	services.displayManager.gdm.enable = true;
-	services.desktopManager.gnome.enable = true;
-	services.xserver.xkb = {
-		layout = "us";
-		variant = "";
+	services = {
+		displayManager.gdm.enable = true;
+		desktopManager.gnome.enable = true;
+
+		xserver = {
+			enable = true;
+			xkb = {
+				layout = "us";
+				variant = "";
+			};
+
+			excludePackages = with pkgs; [
+				xterm
+			];
+		};
+		
 	};
-
-	services.xserver.excludePackages = with pkgs; [
-		xterm
-	];
-
 }

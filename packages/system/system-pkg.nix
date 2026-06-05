@@ -4,8 +4,10 @@
 	nixpkgs.config.allowUnfree = true;
 
 	# Modules
-	programs.git.enable = true;
-	programs.neovim.enable = true;
+	programs = {
+		git.enable = true;
+		neovim.enable = true;
+	};
 
 	# Fallback
 	environment.systemPackages = with pkgs; [

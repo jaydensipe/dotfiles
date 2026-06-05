@@ -7,16 +7,16 @@
 {
 	imports =
 		[					
-			./hardware-configuration.nix	
-			./boot-loader/boot.nix
+			./hardware-configuration.nix		# Hardware configuration.
+			./boot-loader/boot.nix			# Boot loader module.
 
-			./services/services.nix
-			./networking/networking.nix	
-			./audio/audio.nix
-			./locale/locale.nix
-			./alias/alias.nix
+			./services/services.nix			# System service module.
+			./networking/networking.nix		# Networking module.
+			./audio/audio.nix			# Audio & EQ module.
+			./locale/locale.nix			# Time & Locale module.
+			./alias/alias.nix			# Terminal alias module.
 					
-			./packages/system/system-pkg.nix
+			./packages/system/system-pkg.nix 	# System packages module.
 		];
 
 	users.users."jayden" = {
