@@ -1,24 +1,26 @@
 { pkgs, ...}:
 
 {
-	nixpkgs.config.allowUnfree = true;
+    # Modules
+    programs = {  
+        git.enable = true;
+    };
 
-	# Modules
-	programs = {
-		git.enable = true;
-		neovim.enable = true;
-	};
+    # Fallback
+    environment.systemPackages = with pkgs; [
+        gh
+        gnome-tweaks
+    ];		
 
-	# Fallback
-	environment.systemPackages = with pkgs; [
-		google-chrome
-		gh
-		gnome-tweaks
-  	];		
-	
-	# Gnome Exclusions
-	environment.gnome.excludePackages = with pkgs; [
-		gnome-tour
-		simple-scan
-  	];	
+    # Gnome Exclusions
+    environment.gnome.excludePackages = with pkgs; [
+        gnome-calendar
+        gnome-contacts
+        gnome-maps
+        gnome-music
+        gnome-tour
+        simple-scan
+        snapshot
+        yelp
+    ];	
 }

@@ -5,33 +5,35 @@
 { config, pkgs, ... }:
 
 {
-	imports =
-		[					
-			./hardware-configuration.nix		# Hardware configuration.
-			./boot-loader/boot.nix			# Boot loader module.
+    imports =
+        [					
+            ./hardware-configuration.nix	    # Hardware configuration.
+            ./boot-loader/boot.nix			    # Boot loader module.
 
-			./services/services.nix			# System service module.
-			./networking/networking.nix		# Networking module.
-			./audio/audio.nix			# Audio & EQ module.
-			./locale/locale.nix			# Time & Locale module.
-			./alias/alias.nix			# Terminal alias module.
-					
-			./packages/system/system-pkg.nix 	# System packages module.
-		];
+            ./services/services.nix			    # System service module.
+            ./networking/networking.nix		    # Networking module.
+            ./audio/audio.nix			        # Audio & EQ module.
+            ./locale/locale.nix			        # Time & Locale module.
+            ./alias/alias.nix			        # Terminal alias module.
 
-	users.users."jayden" = {
-		isNormalUser = true;
-		description = "Jayden";
-		extraGroups = [ "networkmanager" "wheel" ];
-		packages = with pkgs; [
-		];
-	};
+            ./packages/system/system-pkg.nix 	# System packages module.
 
-	# This value determines the NixOS release from which the default
-	# settings for stateful data, like file locations and database versions
-	# on your system were taken. It‘s perfectly fine and recommended to leave
-	# this value at the release version of the first install of this system.
-	# Before changing this value read the documentation for this option
-	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-	system.stateVersion = "26.05"; # Did you read the comment?
+            <home-manager/nixos>			    # Init Home-Manager.
+        ];
+
+    users.users."jayden" = {
+        isNormalUser = true;
+        description = "Jayden";
+        extraGroups = [ "networkmanager" "wheel" ];
+    };
+
+    home-manager.users.jayden = import ./home.nix;
+
+# This value determines the NixOS release from which the default
+# settings for stateful data, like file locations and database versions
+# on your system were taken. It‘s perfectly fine and recommended to leave
+# this value at the release version of the first install of this system.
+# Before changing this value read the documentation for this option
+# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+    system.stateVersion = "26.05"; # Did you read the comment?
 }
