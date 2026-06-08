@@ -8,6 +8,8 @@
 
     # Fallback
     environment.systemPackages = with pkgs; [
+        amdgpu_top
+        btop
         gh
         gnome-tweaks
     ];		
