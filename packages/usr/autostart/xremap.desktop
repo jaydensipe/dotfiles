@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Xremap
+Comment=Xremap Service
+Exec=xremap /home/jayden/.config/xremap/config.yaml --no-window-logging
+Icon=keyboard
+StartupNotify=false
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true

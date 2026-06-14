@@ -1,7 +1,7 @@
 {
     environment.shellAliases = {
-        ngc         = "nix-collect-garbage";
-        nsopt       = "nix store optimise";
+        cd          = "z";
+        ocd         = "ls -lat";
         rebuild 	= "sudo nixos-rebuild switch";
 
         # Modules
@@ -15,6 +15,7 @@
         usr-pkg 	= "nvim ~/Projects/dotfiles/packages/usr/usr-pkg.nix";
 
         # Neovim Config
+        ghoc        = "nvim ~/Projects/dotfiles/packages/usr/ghostty/config.ghostty";
         nvc         = "nvim ~/Projects/dotfiles/packages/usr/nvim/init.lua";
     };
 }

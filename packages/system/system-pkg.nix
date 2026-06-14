@@ -10,16 +10,19 @@
     environment.systemPackages = with pkgs; [
         amdgpu_top
         btop
-        gh
         gnome-tweaks
+        numix-icon-theme-square
     ];		
 
     # Gnome Exclusions
     environment.gnome.excludePackages = with pkgs; [
+        epiphany
         gnome-calendar
+        gnome-connections
         gnome-contacts
         gnome-maps
         gnome-music
+        gnome-system-monitor
         gnome-tour
         simple-scan
         snapshot

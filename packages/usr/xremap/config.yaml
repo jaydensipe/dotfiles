@@ -1,0 +1,7 @@
+keymap:
+  - name: Ctrl Scroll to Zoom
+    application:
+      only: com.mitchellh.ghostty
+    remap:
+      Ctrl-XUpScroll: Ctrl-equal
+      Ctrl-XDownScroll: Ctrl-minus

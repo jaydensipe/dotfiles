@@ -21,10 +21,12 @@
             <home-manager/nixos>			    # Init Home-Manager.
         ];
 
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
     users.users."jayden" = {
         isNormalUser = true;
         description = "Jayden";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "networkmanager" "wheel" "input" "uinput" ];
     };
 
     home-manager.users.jayden = import ./home.nix;
