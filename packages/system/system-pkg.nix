@@ -1,5 +1,24 @@
 { pkgs, ...}:
 
+let 
+    compilerPackages = with pkgs; [
+        clang
+        gnumake
+    ];
+
+    lspPackages = with pkgs; [
+        clang-tools
+        lua-language-server
+        nil
+    ];
+
+    desktopPackages = with pkgs; [
+        amdgpu_top
+        btop
+        gnome-tweaks
+        numix-icon-theme-square
+    ];
+in
 {
     # Modules
     programs = {  
@@ -7,12 +26,7 @@
     };
 
     # Fallback
-    environment.systemPackages = with pkgs; [
-        amdgpu_top
-        btop
-        gnome-tweaks
-        numix-icon-theme-square
-    ];		
+    environment.systemPackages = compilerPackages ++ desktopPackages ++ lspPackages;		
 
     # Gnome Exclusions
     environment.gnome.excludePackages = with pkgs; [
