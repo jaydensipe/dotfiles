@@ -9,6 +9,20 @@ in
   programs = {
     bash = {
       enable = true;
+      initExtra = ''
+        set_nix_prompt() {
+          if [ -n "$IN_NIX_SHELL" ]; then
+            PS1='\[\e[95;1m\][\[\e[38;5;63m\]Nix\[\e[95m\]:\w]\[\e[38;5;63m\]\$\[\e[0m\] '
+          fi
+        }
+
+        PROMPT_COMMAND=set_nix_prompt
+
+        eval "$(direnv hook bash)"
+      '';
+    };
+    direnv = {
+      enable = true;
     };
     fzf = {
       enable = true;
@@ -33,6 +47,7 @@ in
     gh
     ghostty
     google-chrome
+    nix-direnv
     xremap.gnome
   ];
 

@@ -1,12 +1,11 @@
-{ config, pkgs, ... }:
-
 {
-    home.username = "jayden";
-    home.homeDirectory = "/home/jayden";
-    home.stateVersion = "26.05";
-    nixpkgs.config.allowUnfree = true;
+  home.username = "jayden";
+  home.homeDirectory = "/home/jayden";
+  home.stateVersion = "26.05";
 
-    imports = [
-        ./packages/usr/usr-pkg.nix
-    ];
+  nixpkgs.config.allowUnfree = true;
+
+  imports = [
+    ./packages/usr/usr-pkg.nix
+  ];
 }

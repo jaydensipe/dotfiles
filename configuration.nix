@@ -2,40 +2,46 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
-
 {
-    imports =
-        [					
-            ./hardware-configuration.nix	    # Hardware configuration.
-            ./boot-loader/boot.nix			    # Boot loader module.
+  imports = [
+    ./hardware-configuration.nix # Hardware configuration.
+    ./boot-loader/boot.nix # Boot loader module.
 
-            ./services/services.nix			    # System service module.
-            ./networking/networking.nix		    # Networking module.
-            ./audio/audio.nix			        # Audio & EQ module.
-            ./locale/locale.nix			        # Time & Locale module.
-            ./alias/alias.nix			        # Terminal alias module.
+    ./services/services.nix # System service module.
+    ./networking/networking.nix # Networking module.
+    ./audio/audio.nix # Audio & EQ module.
+    ./locale/locale.nix # Time & Locale module.
+    ./alias/alias.nix # Terminal alias module.
 
-            ./packages/system/system-pkg.nix 	# System packages module.
+    ./packages/system/system-pkg.nix # System packages module.
 
-            <home-manager/nixos>			    # Init Home-Manager.
-        ];
+    <home-manager/nixos> # Init Home-Manager.
+  ];
 
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
-    users.users."jayden" = {
-        isNormalUser = true;
-        description = "Jayden";
-        extraGroups = [ "networkmanager" "wheel" "input" "uinput" ];
-    };
+  users.users."jayden" = {
+    isNormalUser = true;
+    description = "Jayden";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+      "uinput"
+    ];
+  };
 
-    home-manager.users.jayden = import ./home.nix;
+  home-manager.users.jayden = import ./home.nix;
 
-# This value determines the NixOS release from which the default
-# settings for stateful data, like file locations and database versions
-# on your system were taken. It‘s perfectly fine and recommended to leave
-# this value at the release version of the first install of this system.
-# Before changing this value read the documentation for this option
-# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-    system.stateVersion = "26.05"; # Did you read the comment?
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "26.05"; # Did you read the comment?
 }

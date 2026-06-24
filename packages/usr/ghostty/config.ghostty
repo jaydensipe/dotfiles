@@ -1,5 +1,4 @@
 theme = "Adwaita Dark"
 font-family = "Adwaita Mono"
-
-maximize = true
-
+cursor-style = block
+shell-integration-features = no-cursor

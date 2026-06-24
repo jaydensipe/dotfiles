@@ -1,5 +1,5 @@
 -- Configuration
-vim.opt.termguicolors = true
+vim.o.termguicolors = true
 vim.o.number = true;
 vim.o.relativenumber = true;
 
@@ -11,7 +11,6 @@ vim.o.smartindent = true;
 vim.o.winborder = "rounded";
 
 -- Keybinds
-vim.keymap.set({ "n", "i" }, "<C-A-i>", "gg=G", { desc = "Format file (indent)" })
 vim.keymap.set({ "n", "i" }, "<C-A-l>", vim.lsp.buf.format, { desc = "Format file" })
 vim.keymap.set({ "n", "i", "v" }, "<C-e>", ":Pick buffers<CR>", { desc = "Pick buffers" })
 vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<Esc>:w<CR>", { desc = "Save file" })
@@ -24,9 +23,9 @@ vim.g.maplocalleader = " "
 
 -- Plugins
 vim.pack.add({
-    { src = "https://github.com/saghen/blink.cmp",     version = vim.version.range('*') },
     { src = "https://github.com/saghen/blink.lib" },
-    { src = "https://github.com/akinsho/bufferline.nvim"},
+    { src = "https://github.com/saghen/blink.cmp" },
+    { src = "https://github.com/akinsho/bufferline.nvim" },
     { src = "https://github.com/nvim-mini/mini.pick" },
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
