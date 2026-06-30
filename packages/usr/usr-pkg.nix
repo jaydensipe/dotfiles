@@ -46,7 +46,11 @@ in
     easyeffects
     gh
     ghostty
-    google-chrome
+    (google-chrome.override {
+      commandLineArgs = [
+        "--enable-features=MiddleClickAutoscroll"
+      ];
+    })
     nix-direnv
     xremap.gnome
   ];

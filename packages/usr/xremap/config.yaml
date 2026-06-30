@@ -1,3 +1,7 @@
+modmap:
+  - remap:
+      KEY_RIGHTALT: []
+
 keymap:
   - name: Ctrl Scroll to Zoom
     application:

@@ -11,6 +11,11 @@ let
     clang-tools
     lua-language-server
     nil
+    svelte-language-server
+    tailwindcss-language-server
+    typescript-language-server
+    vscode-json-languageserver
+    vscode-langservers-extracted
   ];
 
   desktopPackages = with pkgs; [
@@ -29,19 +34,18 @@ in
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
-        ## https://github.com/NixOS/nixpkgs/issues/354513
-        # (pkgs.runCommand "steamrun-lib" { } "mkdir $out; ln -s ${pkgs.steam-run.fhsenv}/usr/lib64 $out/lib")
+        # https://github.com/NixOS/nixpkgs/issues/354513
+        (pkgs.runCommand "steamrun-lib" { } "mkdir $out; ln -s ${pkgs.steam-run.fhsenv}/usr/lib64 $out/lib")
 
-        # cairo
-        # gdk-pixbuf
-        # glib
-        # gtk3
+        cairo
+        gdk-pixbuf
+        glib
+        gtk3
         # libayatana-appindicator
         # libsoup_3
         # nspr
         # nss
-        # stdenv.cc.cc.lib
-        # webkitgtk_4_1
+        stdenv.cc.cc.lib
       ];
     };
   };

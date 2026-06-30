@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=Easy Effects
 Comment=Easy Effects Service
 Exec=easyeffects --hide-window --service-mode
 Icon=com.github.wwmm.easyeffects
+Name=Easy Effects
 StartupNotify=false
 Terminal=false
 Type=Application

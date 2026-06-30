@@ -1,4 +1,6 @@
 theme = "Adwaita Dark"
 font-family = "Adwaita Mono"
 cursor-style = block
+
+mouse-scroll-multiplier = 1
 shell-integration-features = no-cursor
